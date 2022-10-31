@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+#counter1, #counter2, #counter3, #counter4 {
+background-color:beige;
+width: 15%;
+height: 120px;
+text-align: center;
+margin: 0 auto;
+border-style: solid;
+border-width: thick;
+border-color: green;
+}
+
+.counter1, .counter2, .counter3, .counter4 {
+  width: 260px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 25px;
+}
+
+button {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.result {
+  text-align: center;
+}
+
+body {
+    font: normal 15px Verdana, Arial, sans-serif;
+}
+
+h2, h3 {
+text-align: center;
+font-size: 18px;
+}
+
+h1 {
+text-align: center;
+background-color: hsla(0, 100%, 90%, 0.3);
+}
+
+</style>
+
+<meta charset="UTF-8">
+<title>Customer View Page</title>
+</head>
+<body>
+ <h1>Customer View</h1>
+ 
+ <!-- <a href="management.html" target="_blank">Click for counter management view</a> -->
+ 
+ <div style="text-align: center; border-style: solid; width: 350px; height: 320px; margin: auto">
+  <p>Now Serving: </p>
+  <div class="nowserving"></div>
+  <p>Last Number: </p>
+  <div class="lastnumber"></div>
+  <br>
+  <br>
+  <button class="enqueueBtn">Take a Number</button>
+  <br><br>
+  <button class="Btn">Display Queue</button>
+  <br><br>
+  <div class="result"></div>
+ </div>
+ 
+ <br>
+ <br>
+ <br>
+ 
+ <div id="counter1">
+  <h2>Counter 1</h2>
+  <div class="status1"></div>
+  <p>Currently serving: </p>
+  <div class="resultCounter1"></div>
+  </div>
+ 
+ <br>
+ 
+  <div id="counter2">
+  <h2>Counter 2</h2>
+  <div class="status2"></div>
+  <p>Currently serving: </p>
+  <div class="resultCounter2"></div>
+ </div>
+ 
+ <br>
+ 
+ <div id="counter3">
+  <h2>Counter 3 </h2>
+  <div class="status3"></div>
+  <p>Currently serving: </p>
+  <div class="resultCounter3"></div>
+ </div>
+ 
+ <br>
+ 
+ <div id="counter4">
+  <h2>Counter 4 </h2>
+  <div class="status4"></div>
+  <p>Currently serving: </p>
+  <div class="resultCounter4"></div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <!--  Counter Management starts here -->
+ 
+ <br>
+ <br>
+ <h1>Counter Management</h1>
+ 
+ <div class="counter1" style="display: inline-block">
+ <h2>Counter 1</h2>
+ <button class="goOnline1" onclick="changeGreenCounter1()">Go Online</button>
+ <button class="goOffline1" onclick="changeGreyCounter1()">Go Offline</button>
+ <br><br>
+ <button class="compCurr1" onclick="changeGreenCounter1()">Complete current</button>
+ <br><br>
+ <button class="dequeueBtn1" onclick="changeRedCounter1()">Call Next</button> <!-- FUNCTION: DEQUEUE -->
+ </div>
+ 
+ <div class="counter2" style="display: inline-block">
+ <h2>Counter 2</h2>
+ <button class="goOnline2" onclick="changeGreenCounter2()">Go Online</button>
+ <button class="goOffline2" onclick="changeGreyCounter2()">Go Offline</button>
+ <br><br>
+ <button class="compCurr2" onclick="changeGreenCounter2()">Complete current</button>
+ <br><br>
+ <button class="dequeueBtn2" onclick="changeRedCounter2()">Call Next</button>
+ </div>
+ 
+ <div class="counter3" style="display: inline-block">
+ <h2>Counter 3</h2>
+ <button class="goOnline3" onclick="changeGreenCounter3()">Go Online</button>
+ <button class="goOffline3" onclick="changeGreyCounter3()">Go Offline</button>
+ <br><br>
+ <button class="compCurr3" onclick="changeGreenCounter3()">Complete current</button>
+ <br><br>
+ <button class="dequeueBtn3" onclick="changeRedCounter3()">Call Next</button>
+ </div>
+ 
+ <div class="counter4" style="display: inline-block">
+ <h2>Counter 4</h2>
+ <button class="goOnline4" onclick="changeGreenCounter4()">Go Online</button>
+ <button class="goOffline4" onclick="changeGreyCounter4()">Go Offline</button>
+ <br><br>
+ <button class="compCurr4" onclick="changeGreenCounter4()">Complete current</button>
+ <br><br>
+ <button class="dequeueBtn4" onclick="changeRedCounter4()">Call Next</button>
+ </div>
+
+
+
+
+
+
+
+<!-- javascript code starts here -->
+
+<script>
+
+function changeRedCounter1(){
+	var element = document.getElementById("counter1");
+	element.style.borderColor = "red";
+}
+function changeRedCounter2(){
+	var element = document.getElementById("counter2");
+	element.style.borderColor = "red";
+}
+function changeRedCounter3(){
+	var element = document.getElementById("counter3");
+	element.style.borderColor = "red";
+}
+function changeRedCounter4(){
+	var element = document.getElementById("counter4");
+	element.style.borderColor = "red";
+}
+
+
+function changeGreenCounter1(){
+	var element = document.getElementById("counter1");
+	element.style.borderColor = "green";
+}
+function changeGreenCounter2(){
+	var element = document.getElementById("counter2");
+	element.style.borderColor = "green";
+}
+function changeGreenCounter3(){
+	var element = document.getElementById("counter3");
+	element.style.borderColor = "green";
+}
+function changeGreenCounter4(){
+	var element = document.getElementById("counter4");
+	element.style.borderColor = "green";
+}
+
+function changeGreyCounter1(){
+	var element = document.getElementById("counter1");
+	element.style.borderColor = "grey";
+}
+function changeGreyCounter2(){
+	var element = document.getElementById("counter2");
+	element.style.borderColor = "grey";
+}
+function changeGreyCounter3(){
+	var element = document.getElementById("counter3");
+	element.style.borderColor = "grey";
+}
+function changeGreyCounter4(){
+	var element = document.getElementById("counter4");
+	element.style.borderColor = "grey";
+}
+
+function toggle(button){
+	if (button.value == "Go Offline"){
+		button.value = "Go Online";
+	} else {
+		button.value= "Go Offline";
+	}
+}
+
+/* declarations or initializations */
+
+let resEle = document.querySelector(".result");
+
+let resCounter1 = document.querySelector(".resultCounter1");
+let resCounter2 = document.querySelector(".resultCounter2");
+let resCounter3 = document.querySelector(".resultCounter3");
+let resCounter4 = document.querySelector(".resultCounter4");
+
+let BtnEle = document.querySelector(".Btn");
+
+let latestServing = document.querySelector(".nowserving");
+
+let latestNumber = document.querySelector(".lastnumber");
+
+let enqueueBtnEle = document.querySelector(".enqueueBtn");
+
+let dequeueBtnEle1 = document.querySelector(".dequeueBtn1");
+let dequeueBtnEle2 = document.querySelector(".dequeueBtn2");
+let dequeueBtnEle3 = document.querySelector(".dequeueBtn3");
+let dequeueBtnEle4 = document.querySelector(".dequeueBtn4");
+
+let currStatus1 = document.querySelector(".status1");
+let currStatus2 = document.querySelector(".status2");
+let currStatus3 = document.querySelector(".status3");
+let currStatus4 = document.querySelector(".status4");
+
+let completeCurr = document.querySelector(".compCurr1");
+let completeCurr2 = document.querySelector(".compCurr2");
+let completeCurr3 = document.querySelector(".compCurr3");
+let completeCurr4 = document.querySelector(".compCurr4");
+
+let offline1 = document.querySelector(".goOffline1");
+let offline2 = document.querySelector(".goOffline2");
+let offline3 = document.querySelector(".goOffline3");
+let offline4 = document.querySelector(".goOffline4");
+
+let online1 = document.querySelector(".goOnline1");
+let online2 = document.querySelector(".goOnline2");
+let online3 = document.querySelector(".goOnline3");
+let online4 = document.querySelector(".goOnline4");
+
+let ele = 1;
+
+
+class Queue {
+   constructor() {
+      this.items = [];
+      this.length = 0;
+   }
+}
+
+/* operations on queue */
+
+Queue.prototype.enqueue = function (ele) {
+   this.items[this.length] = ele;
+   this.length += 1;
+};
+
+Queue.prototype.dequeue = function () {
+   debugger;
+   if (this.length === 0) {
+      return "\tNo tickets in the waiting queue\t";
+   }
+   tempNum = this.items[0];
+   this.items.shift();
+   this.length -= 1;
+   return tempNum;
+};
+
+Queue.prototype.display = function () {
+   debugger;
+   if (this.length == 0) {
+      return "Stack is empty";
+   }
+   for (let i = 0; i < this.length; i++) {
+      resEle.innerHTML += this.items[i] + " , ";
+   }
+};
+
+let queue1 = new Queue();
+
+/* buttons functionality section */
+
+BtnEle.addEventListener("click", () => {
+   resEle.innerHTML = "";
+   queue1.display();
+});
+
+enqueueBtnEle.addEventListener("click", () => {
+   resEle.innerHTML = "Your ticket number: " + ele;
+   latestNumber.innerHTML = ele;
+   queue1.enqueue(ele);
+   ele++;
+});
+
+dequeueBtnEle1.addEventListener("click", () => {
+	resEle.innerHTML =
+	"Ticket Number " + queue1.dequeue() + " to Counter 1 please.";
+	resCounter1.innerHTML = tempNum;
+	latestServing.innerHTML = tempNum;
+});
+
+completeCurr.addEventListener("click", () => {
+	resCounter1.innerHTML = "Available";
+});
+
+completeCurr2.addEventListener("click", () => {
+	resCounter2.innerHTML = "Available";
+});
+
+completeCurr3.addEventListener("click", () => {
+	resCounter3.innerHTML = "Available";
+});
+
+completeCurr4.addEventListener("click", () => {
+	resCounter4.innerHTML = "Available";
+});
+	
+dequeueBtnEle2.addEventListener("click", () => {
+	resEle.innerHTML =
+	"Ticket Number " + queue1.dequeue() + " to Counter 2 please.";
+	resCounter2.innerHTML = tempNum;
+	latestServing.innerHTML = tempNum;
+});
+
+dequeueBtnEle3.addEventListener("click", () => {
+	resEle.innerHTML =
+	"Ticket Number " + queue1.dequeue() + " to Counter 3 please.";
+	resCounter3.innerHTML = tempNum;
+	latestServing.innerHTML = tempNum;
+});
+	
+dequeueBtnEle4.addEventListener("click", () => {
+	resEle.innerHTML =
+	"Ticket Number " + queue1.dequeue() + " to Counter 4 please.";
+	resCounter4.innerHTML = tempNum;
+	latestServing.innerHTML = tempNum;
+});
+
+offline1.addEventListener("click", () => {
+	resCounter1.innerHTML = "Offline";
+});
+
+offline2.addEventListener("click", () => {
+	resCounter2.innerHTML = "Offline";
+});
+
+offline3.addEventListener("click", () => {
+	resCounter3.innerHTML = "Offline";
+});
+
+offline4.addEventListener("click", () => {
+	resCounter4.innerHTML = "Offline";
+});
+
+online1.addEventListener("click", () => {
+	resCounter1.innerHTML = "Available";
+});
+
+online2.addEventListener("click", () => {
+	resCounter2.innerHTML = "Available";
+});
+
+online3.addEventListener("click", () => {
+	resCounter3.innerHTML = "Available";
+});
+
+online4.addEventListener("click", () => {
+	resCounter4.innerHTML = "Available";
+});
+
+
+</script>
+</body>
+</html>
